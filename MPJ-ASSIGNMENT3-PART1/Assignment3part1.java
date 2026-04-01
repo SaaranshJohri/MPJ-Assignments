@@ -1,25 +1,24 @@
 import java.util.Scanner;
 
-class Shapes {
-    double length, breadth, radius;
+class Shape {
+    double len, br, rad;
 
-    // Constructor Overloading
-    Shapes(double l, double b) {
-        length = l;
-        breadth = b;
+
+    Shape(double l, double b) {
+        len = l;
+        br = b;
     }
 
-    Shapes(double r) {
-        radius = r;
+    Shape(double r) {
+        rad = r;
     }
 
-    // Method Overloading
     double area(double l, double b) {
-        return l * b; // Rectangle
+        return l*b;
     }
 
     double area(double r) {
-        return 3.14 * r * r; // Circle
+        return 3.14*r*r;
     }
 }
 
@@ -29,9 +28,8 @@ public class Assignment3part1 {
         int choice;
 
         do {
-            System.out.println("\n--- SHAPE MENU ---");
-            System.out.println("1. Area of Rectangle");
-            System.out.println("2. Area of Circle");
+            System.out.println("1. Rectangle");
+            System.out.println("2. Circle");
             System.out.println("3. Exit");
             System.out.print("Enter your choice: ");
             choice = sc.nextInt();
@@ -44,7 +42,7 @@ public class Assignment3part1 {
                     System.out.print("Enter breadth: ");
                     double b = sc.nextDouble();
 
-                    Shapes rect = new Shapes(l, b);
+                    Shape rect = new Shape(l, b);
                     System.out.println("Area of Rectangle = " + rect.area(l, b));
                     break;
 
@@ -57,11 +55,11 @@ public class Assignment3part1 {
                     break;
 
                 case 3:
-                    System.out.println("Exiting program...");
+                    System.out.println("Exiting..");
                     break;
 
                 default:
-                    System.out.println("Invalid choice!");
+                    System.out.println("Invalid");
             }
 
         } while (choice != 3);
