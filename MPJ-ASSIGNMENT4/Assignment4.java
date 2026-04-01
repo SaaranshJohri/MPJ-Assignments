@@ -2,32 +2,28 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Assignment4 {
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int choice;
-        String filename = "sample.txt";
-
+        String filename = "file.txt";
         do {
-            System.out.println("\n--- FILE MENU ---");
             System.out.println("1. Write to File");
             System.out.println("2. Read from File");
             System.out.println("3. Append to File");
             System.out.println("4. Exit");
             System.out.print("Enter your choice: ");
             choice = sc.nextInt();
-            sc.nextLine(); // clear buffer
+            sc.nextLine();
 
             switch (choice) {
-
                 case 1:
                     try {
-                        FileWriter fw = new FileWriter(filename);
-                        System.out.print("Enter text to write: ");
+                        FileWriter filew = new FileWriter(filename);
+                        System.out.print("Enter text: ");
                         String data = sc.nextLine();
-                        fw.write(data);
-                        fw.close();
-                        System.out.println("Data written successfully.");
+                        filew.write(data);
+                        filew.close();
+                        System.out.println("Data written");
                     } catch (IOException e) {
                         System.out.println("Error writing file: " + e.getMessage());
                     } finally {
@@ -37,46 +33,46 @@ public class Assignment4 {
 
                 case 2:
                     try {
-                        FileReader fr = new FileReader(filename);
-                        BufferedReader br = new BufferedReader(fr);
+                        FileReader filer = new FileReader(filename);
+                        BufferedReader bufferr = new BufferedReader(filer);
 
-                        String line;
+                        String lineinput;
                         System.out.println("\nFile Content:");
-                        while ((line = br.readLine()) != null) {
-                            System.out.println(line);
+                        while ((lineinput = bufferr.readLine()) != null) {
+                            System.out.println(lineinput);
                         }
 
-                        br.close();
+                        bufferr.close();
                     } catch (FileNotFoundException e) {
-                        System.out.println("File not found!");
+                        System.out.println("Not found");
                     } catch (IOException e) {
-                        System.out.println("Error reading file: " + e.getMessage());
+                        System.out.println("Error: " + e.getMessage());
                     } finally {
-                        System.out.println("Read operation completed.");
+                        System.out.println("Read complete.");
                     }
                     break;
 
                 case 3:
                     try {
-                        FileWriter fw = new FileWriter(filename, true); // append mode
-                        System.out.print("Enter text to append: ");
-                        String data = sc.nextLine();
-                        fw.write("\n" + data);
-                        fw.close();
-                        System.out.println("Data appended successfully.");
+                        FileWriter filew = new FileWriter(filename, true); 
+                        System.out.print("Text: ");
+                        String dataline = sc.nextLine();
+                        filew.write("\n" + dataline);
+                        filew.close();
+                        System.out.println("Data appended.");
                     } catch (IOException e) {
-                        System.out.println("Error appending file: " + e.getMessage());
+                        System.out.println("Error: " + e.getMessage());
                     } finally {
-                        System.out.println("Append operation completed.");
+                        System.out.println("Appended.");
                     }
                     break;
 
                 case 4:
-                    System.out.println("Exiting program...");
+                    System.out.println("Exiting..");
                     break;
 
                 default:
-                    System.out.println("Invalid choice!");
+                    System.out.println("Invalid!");
             }
 
         } while (choice != 4);
