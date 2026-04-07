@@ -33,13 +33,13 @@ public class MPJAssignment3part1 {
                     System.out.print("Enter breadth: ");
                     double b = sc.nextDouble();
                     Shape rect = new Shape(l, b);
-                    System.out.println("Area of Rectangle = " + rect.area(l, b));
+                    System.out.println("Area of Rectangle= " + rect.area(l, b));
                     break;
                 case 2:
                     System.out.print("Enter radius: ");
                     double r = sc.nextDouble();
                     Shapes circle = new Shapes(r);
-                    System.out.println("Area of Circle = " + circle.area(r));
+                    System.out.println("Area of Circle= " + circle.area(r));
                     break;
                 case 3:
                     System.out.println("Exiting..");
