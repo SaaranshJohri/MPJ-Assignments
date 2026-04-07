@@ -4,44 +4,40 @@ import java.util.Scanner;
 public class Assignment4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int choice;
-        String filename = "file.txt";
+        int ch;
+        String file = "assignment.txt";
         do {
-            System.out.println("1. Write to File");
-            System.out.println("2. Read from File");
-            System.out.println("3. Append to File");
+            System.out.println("1. Write");
+            System.out.println("2. Read");
+            System.out.println("3. Append");
             System.out.println("4. Exit");
             System.out.print("Enter your choice: ");
-            choice = sc.nextInt();
+            ch = sc.nextInt();
             sc.nextLine();
-
-            switch (choice) {
+            switch (ch) {
                 case 1:
                     try {
-                        FileWriter filew = new FileWriter(filename);
+                        FileWriter filew = new FileWriter(file);
                         System.out.print("Enter text: ");
                         String data = sc.nextLine();
                         filew.write(data);
                         filew.close();
                         System.out.println("Data written");
                     } catch (IOException e) {
-                        System.out.println("Error writing file: " + e.getMessage());
+                        System.out.println("Error: " + e.getMessage());
                     } finally {
-                        System.out.println("Write operation completed.");
+                        System.out.println("Write completed.");
                     }
                     break;
-
                 case 2:
                     try {
-                        FileReader filer = new FileReader(filename);
+                        FileReader filer = new FileReader(file);
                         BufferedReader bufferr = new BufferedReader(filer);
-
-                        String lineinput;
+                        String line;
                         System.out.println("\nFile Content:");
-                        while ((lineinput = bufferr.readLine()) != null) {
-                            System.out.println(lineinput);
+                        while ((line = bufferr.readLine()) != null) {
+                            System.out.println(line);
                         }
-
                         bufferr.close();
                     } catch (FileNotFoundException e) {
                         System.out.println("Not found");
@@ -51,10 +47,9 @@ public class Assignment4 {
                         System.out.println("Read complete.");
                     }
                     break;
-
                 case 3:
                     try {
-                        FileWriter filew = new FileWriter(filename, true); 
+                        FileWriter filew = new FileWriter(file, true); 
                         System.out.print("Text: ");
                         String dataline = sc.nextLine();
                         filew.write("\n" + dataline);
@@ -66,17 +61,13 @@ public class Assignment4 {
                         System.out.println("Appended.");
                     }
                     break;
-
                 case 4:
                     System.out.println("Exiting..");
                     break;
-
                 default:
                     System.out.println("Invalid!");
             }
-
-        } while (choice != 4);
-
+        } while (ch != 4);
         sc.close();
     }
 }
