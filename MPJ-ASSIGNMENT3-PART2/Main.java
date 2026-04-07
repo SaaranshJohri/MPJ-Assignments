@@ -1,42 +1,31 @@
 class Hillstations {
-
     void famousfood() {
         System.out.println("Hillstations have local traditional food.");
     }
-
     void famousfor() {
         System.out.println("Hillstations are famous for scenic beauty.");
     }
 }
-
-// Subclass 1
 class Manali extends Hillstations {
     void famousfood() {
         System.out.println("Manali is famous for Siddu and Trout fish.");
     }
-
     void famousfor() {
         System.out.println("Manali is famous for snow and adventure sports.");
     }
 }
-
-// Subclass 2
 class Ooty extends Hillstations {
     void famousfood() {
         System.out.println("Ooty is famous for chocolates and tea.");
     }
-
     void famousfor() {
         System.out.println("Ooty is famous for tea gardens.");
     }
 }
-
-// Subclass 3
 class Darjeeling extends Hillstations {
     void famousfood() {
         System.out.println("Darjeeling is famous for momos and tea.");
     }
-
     void famousfor() {
         System.out.println("Darjeeling is famous for Kanchenjunga view.");
     }
@@ -44,17 +33,11 @@ class Darjeeling extends Hillstations {
 
 public class Main {
     public static void main(String[] args) {
-
-        // Parent class reference
         Hillstations h;
-
-        // Runtime Polymorphism
         h = new Manali();
         h.famousfood();
         h.famousfor();
-
         System.out.println();
-
         h = new Ooty();
         h.famousfood();
         h.famousfor();
